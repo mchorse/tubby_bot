@@ -1,11 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
-function noPermissions (message) 
-{
-    message.reply("you don't have permissions to use this command!");
-}
-
 console.log("Starting up...");
 
 client.on('warn', info =>

@@ -1,6 +1,6 @@
 const fs = require("fs");
 const utils = require("./utils.js");
-let faq = require("./faq.json");
+let faq = require("../faq.json");
 
 const prefix = "!tubby";
 
@@ -29,6 +29,16 @@ function handleMessage (client, message)
         content = prefix + " faq" + content.substring(4);
     }
 
+    if (content.startsWith("!set"))
+    {
+        content = prefix + " set" + content.substring(4);
+    }
+
+    if (content.startsWith("!rem"))
+    {
+        content = prefix + " remove" + content.substring(4);
+    }
+
     if (!content.startsWith(prefix))
     {
         return;
@@ -37,6 +47,9 @@ function handleMessage (client, message)
     const commandBody = content.slice(prefix.length + 1);
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
+
+    // console.log(`Message received: ${content}`);
+    // console.log(`Command: ${command}, Arguments: ${args}`);
 
     if (command === "hi")
     {
@@ -49,7 +62,7 @@ function handleMessage (client, message)
         if (args.length >= 1)
         {
             const emoji = utils.getEmoji(client, "catblob_sipping_juice");
-            const key = args[0];
+            const key = args[0].toLowerCase();
 
             if (faq.hasOwnProperty(key))
             {
@@ -70,6 +83,8 @@ function handleMessage (client, message)
             }
             else
             {
+                keys.sort();
+                
                 keys = keys.map(elem => "`" + elem + "`");
                 keys = keys.join(", ");
             }
@@ -81,7 +96,7 @@ function handleMessage (client, message)
     {
         if (message.member.hasPermission('ADMINISTRATOR'))
         {
-            const key = args.shift();
+            const key = args.shift().toLowerCase();
 
             if (faq.hasOwnProperty(key))
             {
@@ -105,7 +120,7 @@ function handleMessage (client, message)
     {
         if (message.member.hasPermission('ADMINISTRATOR'))
         {
-            const key = args[0];
+            const key = args[0].toLowerCase();
 
             if (faq.hasOwnProperty(key))
             {
