@@ -30,5 +30,14 @@
     "structure-morph": "This video shows how to **create Structure morphs**:\nhttps://www.youtube.com/watch?v=X55YLSWJVeM",
     "entity-selectors": "This video shows how to use **Metamorph's feature called entity selectors**, which allows to replace mob's appearance with morphs:\nhttps://www.youtube.com/watch?v=b9WbQa0goUQ&t=402s",
     "spin": "This excerpt shows how to **setup a spinning animation**:\nhttps://www.youtube.com/watch?v=1Zd0Gd4Eryw&t=362s",
-    "compress": "This excerpt shows how to **compress video MP4 files** using `ffmpeg`: \nhttps://www.youtube.com/watch?v=oYa_Wtd5Wo8&t=142s"
+    "compress": "This excerpt shows how to **compress video MP4 files** using `ffmpeg`: \nhttps://www.youtube.com/watch?v=oYa_Wtd5Wo8&t=142s",
+    "bb-eyes": "This video shows how to **create eyes animation**:\nhttps://youtu.be/LTNfH2pUwuI",
+    "db-outdated": "https://www.youtube.com/watch?v=nMOb8RnuyuE",
+    "fight-scene": "This video by **SeanFilmProduction** shows how to do **fight scenes** in Blockbuster: \nhttps://youtu.be/FzCCg2mJscw",
+    "manual-focus": "This video shows an experimental feature that can be used with **manually edited** shader packs and Aperture:\nhttps://www.youtube.com/watch?v=MC3t6GiQMQI",
+    "bb-armies": "This video shows how to **setup armies of actors**, i.e. duplicate multiple player recordings and adjust their position and delay of the playback:\nhttps://youtu.be/YMUgMj9wWI4",
+    "ap-academy": "This playlist shows **basics of Aperture mod**: \nhttps://www.youtube.com/playlist?list=PLLnllO8nnzE8MGDb6QzE2kt4-KVC1dRRl",
+    "bb-characters": "This tutorial shows how to **import multi-limb bipedal models** into Blockbuster:\nhttps://youtu.be/NNvOdmWsd8I",
+    "blockbench": "This video shows how to **import static Blockbench models**:\nhttps://www.youtube.com/watch?v=QdN4C3XFRDI",
+    "bb-magicavoxel": "This video shows how to **import MagicaVoxel models** with Blockbuster:\nhttps://www.youtube.com/watch?v=RUcXH6dnpcQ"
 }
