@@ -1,14 +1,17 @@
 {
 	"ru": {
 		"just_ask": "задай свой вопрос!",
-		"ask_help": "перейди в соответствующий канал под HELP категорией!"
+		"ask_help": "перейди в соответствующий канал под HELP категорией!",
+		"dont_ping": "пожалуйста не упоминай (`@`) McHorse! Если у тебя есть вопрос, просто задай его тут. Он читает тут все сообщения. \n\n Оригинальное сообщение: \n```\n%MESSAGE%\n```"
 	},
 	"en": {
 		"just_ask": "don't ask to ask, just ask!",
-		"ask_help": "move to appropriate channel under HELP category!"
+		"ask_help": "move to appropriate channel under HELP category!",
+		"dont_ping": "please don't (`@`) McHorse! If you have a question, just ask it. He reads all the messages here. \n\n Original message: \n```\n%MESSAGE%\n```"
 	},
 	"pt": {
 		"just_ask": "apenas pergunte!",
-		"ask_help": "mova para o canal apropriado na HELP categoria!"
+		"ask_help": "mova para o canal apropriado na HELP categoria!",
+		"dont_ping": "não marca (`@`) McHorse! Se tem uma dúvida, pergunte. Ele lê os todos mensagems aqui. \n\n Mensagem original: \n```\n%MESSAGE%\n```"
 	}
 }

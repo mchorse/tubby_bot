@@ -1,9 +1,6 @@
-exports.getEmoji = (client, str) =>
-{
-    return client.emojis.cache.find(emoji => emoji.name === str);
-};
+const lang = require("./lang.json");
 
-exports.getLocale = (channel) =>
+function getLocale (channel) 
 {
     if (channel.name === "русский")
     {
@@ -15,4 +12,18 @@ exports.getLocale = (channel) =>
     }
     
     return "en";
+}
+
+exports.getEmoji = (client, str) =>
+{
+    return client.emojis.cache.find(emoji => emoji.name === str);
 };
+
+exports.getMessage = (channel, key) =>
+{
+    let locale = getLocale(channel);
+
+    return lang[locale][key];
+};
+
+exports.getLocale = getLocale;

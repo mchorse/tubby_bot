@@ -9,10 +9,10 @@ function noPermissions (message)
     message.reply("you don't have permissions to use this command!");
 }
 
-function saveFaq () 
+function saveFaq (key) 
 {
     fs.writeFile('faq.json', JSON.stringify(faq, null, 4), () => {});
-    console.log("FAQ was saved!");
+    console.log("FAQ was saved! Latest key is: " + key);
 }
 
 function handleMessage (client, message)
@@ -22,7 +22,23 @@ function handleMessage (client, message)
         return;
     }
 
+    if (message.mentions.has(message.guild.ownerID))
+    {
+        var m = utils.getMessage(message.channel, 'dont_ping');
+
+        message.reply(m.replace('%MESSAGE%', message.toString()));
+        message.delete();
+
+        return;
+    }
+
     var content = message.content;
+
+    /* Shortcuts */
+    if (faq.hasOwnProperty(content.substring(1)))
+    {
+        content = "!faq " + content.substring(1);
+    }
 
     if (content.startsWith("!faq"))
     {
@@ -34,9 +50,19 @@ function handleMessage (client, message)
         content = prefix + " set" + content.substring(4);
     }
 
+    if (content.startsWith("!="))
+    {
+        content = prefix + " set" + content.substring(2);
+    }
+
     if (content.startsWith("!rem"))
     {
         content = prefix + " remove" + content.substring(4);
+    }
+
+    if (content.startsWith("!-"))
+    {
+        content = prefix + " remove" + content.substring(2);
     }
 
     if (!content.startsWith(prefix))
@@ -109,7 +135,7 @@ function handleMessage (client, message)
 
             faq[key] = args.join(" ");
 
-            saveFaq();
+            saveFaq(key);
         }
         else
         {
@@ -126,7 +152,7 @@ function handleMessage (client, message)
             {
                 delete faq[key];
 
-                saveFaq();
+                saveFaq(key);
 
                 message.reply(`FAQ entry \`${key}\` was successfully removed!`);
             }
