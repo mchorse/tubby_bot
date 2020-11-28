@@ -36,8 +36,12 @@
     "fight-scene": "This video by **SeanFilmProduction** shows how to do **fight scenes** in Blockbuster: \nhttps://youtu.be/FzCCg2mJscw",
     "manual-focus": "This video shows an experimental feature that can be used with **manually edited** shader packs and Aperture:\nhttps://www.youtube.com/watch?v=MC3t6GiQMQI",
     "bb-armies": "This video shows how to **setup armies of actors**, i.e. duplicate multiple player recordings and adjust their position and delay of the playback:\nhttps://youtu.be/YMUgMj9wWI4",
-    "ap-academy": "This playlist shows **basics of Aperture mod**: \nhttps://www.youtube.com/playlist?list=PLLnllO8nnzE8MGDb6QzE2kt4-KVC1dRRl",
+    "ap-academy": "This playlist shows **the basics of Aperture mod**:\nhttps://www.youtube.com/playlist?list=PLLnllO8nnzE8MGDb6QzE2kt4-KVC1dRRl",
     "bb-characters": "This tutorial shows how to **import multi-limb bipedal models** into Blockbuster:\nhttps://youtu.be/NNvOdmWsd8I",
     "blockbench": "This video shows how to **import static Blockbench models**:\nhttps://www.youtube.com/watch?v=QdN4C3XFRDI",
-    "bb-magicavoxel": "This video shows how to **import MagicaVoxel models** with Blockbuster:\nhttps://www.youtube.com/watch?v=RUcXH6dnpcQ"
+    "bb-magicavoxel": "This video shows how to **import MagicaVoxel models** with Blockbuster:\nhttps://www.youtube.com/watch?v=RUcXH6dnpcQ",
+    "minema-report": "In order for me to **efficiently** help you **to fix an issue** with **Minema** mod, please provide following:\n1. Screenshot of where you installed `ffmpeg`, **entire window** please\n2. File `config/minema.cfg` (drag and drop the file into the Discord window, **don't screenshot it**!)\n\nIf you haven't installed `ffmpeg` yet, you can download it:\n— Windows: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z\n— Everything else: https://ffmpeg.org/download.html",
+    "bb-model-blocks": "This video shows how to **use Blockbuster's model blocks**, special kind of blocks that allow to place morphs as decorations:\nhttps://www.youtube.com/watch?v=PaUue4oax58",
+    "bb-morphs": "This video shows how to **setup skins and configure Blockbuster morphs**:\nhttps://www.youtube.com/watch?v=33S4PFVuygc",
+    "compatibility": "This page lists the **compatible versions of my mods**, and **incompatible mods and possible fixes for these mods**:\nhttps://github.com/mchorse/mclib/wiki/Compatibility-table-of-McHorse's-mods"
 }
