@@ -22,7 +22,7 @@ function handleMessage (client, message)
         return;
     }
 
-    if (message.mentions.has(message.guild.ownerID))
+    if (message.mentions.has(message.guild.ownerID) && message.author.id !== message.guild.ownerID)
     {
         var m = utils.getMessage(message.channel, 'dont_ping');
 

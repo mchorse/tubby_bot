@@ -43,5 +43,6 @@
     "minema-report": "In order for me to **efficiently** help you **to fix an issue** with **Minema** mod, please provide following:\n1. Screenshot of where you installed `ffmpeg`, **entire window** please\n2. File `config/minema.cfg` (drag and drop the file into the Discord window, **don't screenshot it**!)\n\nIf you haven't installed `ffmpeg` yet, you can download it:\n— Windows: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z\n— Everything else: https://ffmpeg.org/download.html",
     "bb-model-blocks": "This video shows how to **use Blockbuster's model blocks**, special kind of blocks that allow to place morphs as decorations:\nhttps://www.youtube.com/watch?v=PaUue4oax58",
     "bb-morphs": "This video shows how to **setup skins and configure Blockbuster morphs**:\nhttps://www.youtube.com/watch?v=33S4PFVuygc",
-    "compatibility": "This page lists the **compatible versions of my mods**, and **incompatible mods and possible fixes for these mods**:\nhttps://github.com/mchorse/mclib/wiki/Compatibility-table-of-McHorse's-mods"
+    "compatibility": "This page lists the **compatible versions of my mods**, and **incompatible mods and possible fixes for these mods**:\nhttps://github.com/mchorse/mclib/wiki/Compatibility-table-of-McHorse's-mods",
+    "bb-record-morph": "This video shows how to use **record morph, which allows to playback a Blockbuster player recording, inside of a morph**:\nhttps://www.youtube.com/watch?v=GnkbJ6teY0o"
 }
