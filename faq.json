@@ -1,5 +1,5 @@
 {
-    "mod-links": "**McHorse's mods**\n— McLib: https://www.curseforge.com/minecraft/mc-mods/mchorses-mclib/files \n— Metamorph: https://www.curseforge.com/minecraft/mc-mods/metamorph/files \n— Aperture: https://www.curseforge.com/minecraft/mc-mods/aperture/files \n— Emoticons: https://www.curseforge.com/minecraft/mc-mods/emoticons/files \n— Blockbuster: https://www.curseforge.com/minecraft/mc-mods/blockbuster/files\n— Minema mod: https://github.com/daipenger/minema/releases",
+    "mod-links": "**McHorse's mods**\n— McLib: https://www.curseforge.com/minecraft/mc-mods/mchorses-mclib/files \n— Metamorph: https://www.curseforge.com/minecraft/mc-mods/metamorph/files\n— Chameleon: https://www.curseforge.com/minecraft/mc-mods/chameleon-morph/files \n— Aperture: https://www.curseforge.com/minecraft/mc-mods/aperture/files \n— Emoticons: https://www.curseforge.com/minecraft/mc-mods/emoticons/files \n— Blockbuster: https://www.curseforge.com/minecraft/mc-mods/blockbuster/files\n— Minema mod: https://github.com/daipenger/minema/releases",
     "bb-academy": "This is **Blockbuster academy**, a playlist of video tutorials that show basics of Blockbuster mod:\nhttps://www.youtube.com/playlist?list=PLLnllO8nnzE-xmqdymsLpxnXTaAbyIVjM",
     "bb-disable-limbs": "This video shows how to **disable limb idle movement** for Blockbuster models: \nhttps://www.youtube.com/watch?v=XiNDzYrrXUU",
     "bb-scenes": "This video shows **how to use Blockbuster scene**: \nhttps://www.youtube.com/watch?v=qDPEjf2TxAc",
@@ -38,11 +38,20 @@
     "bb-armies": "This video shows how to **setup armies of actors**, i.e. duplicate multiple player recordings and adjust their position and delay of the playback:\nhttps://youtu.be/YMUgMj9wWI4",
     "ap-academy": "This playlist shows **the basics of Aperture mod**:\nhttps://www.youtube.com/playlist?list=PLLnllO8nnzE8MGDb6QzE2kt4-KVC1dRRl",
     "bb-characters": "This tutorial shows how to **import multi-limb bipedal models** into Blockbuster:\nhttps://youtu.be/NNvOdmWsd8I",
-    "blockbench": "This video shows how to **import static Blockbench models**:\nhttps://www.youtube.com/watch?v=QdN4C3XFRDI",
+    "blockbench": "This video shows how to **import static Blockbench models** with **Chameleon** mod:\nhttps://youtu.be/97romIu2DGo",
     "bb-magicavoxel": "This video shows how to **import MagicaVoxel models** with Blockbuster:\nhttps://www.youtube.com/watch?v=RUcXH6dnpcQ",
     "minema-report": "In order for me to **efficiently** help you **to fix an issue** with **Minema** mod, please provide following:\n1. Screenshot of where you installed `ffmpeg`, **entire window** please\n2. File `config/minema.cfg` (drag and drop the file into the Discord window, **don't screenshot it**!)\n\nIf you haven't installed `ffmpeg` yet, you can download it:\n— Windows: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z\n— Everything else: https://ffmpeg.org/download.html",
     "bb-model-blocks": "This video shows how to **use Blockbuster's model blocks**, special kind of blocks that allow to place morphs as decorations:\nhttps://www.youtube.com/watch?v=PaUue4oax58",
     "bb-morphs": "This video shows how to **setup skins and configure Blockbuster morphs**:\nhttps://www.youtube.com/watch?v=33S4PFVuygc",
     "compatibility": "This page lists the **compatible versions of my mods**, and **incompatible mods and possible fixes for these mods**:\nhttps://github.com/mchorse/mclib/wiki/Compatibility-table-of-McHorse's-mods",
-    "bb-record-morph": "This video shows how to use **record morph, which allows to playback a Blockbuster player recording, inside of a morph**:\nhttps://www.youtube.com/watch?v=GnkbJ6teY0o"
+    "bb-record-morph": "This video shows how to use **record morph, which allows to playback a Blockbuster player recording, inside of a morph**:\nhttps://www.youtube.com/watch?v=GnkbJ6teY0o",
+    "sequencer-morph": "This video by **Ethobot** shows how to **use sequencer morph**:\nhttps://www.youtube.com/watch?v=s_gzzzVjJ_k",
+    "blockbench-animated": "This video shows how to **import animated Blockbench models** using **Chameleon mod** (make sure you to also watch the **Static Blockbench models** tutorial, see `!blockbench`):\nhttps://youtu.be/CgHWIL6h1XU",
+    "eyes-animation": "This video shows how to **use eyes rig** and **setup eyes animation**:\nhttps://youtu.be/vFhErlhTrMA",
+    "keying": "This video shows how to **use green screen and keying features of Blockbuster and Minema mods**:\nhttps://www.youtube.com/watch?v=OY_USRJofT0",
+    "bb-models-materials": "This section of old Blockbench tutorial shows how **to setup multiple OBJ materials**:\nhttps://www.youtube.com/watch?v=QdN4C3XFRDI&t=105s",
+    "bababoeey": "Bababoeey",
+    "morph-categories": "This excerpt shows how to **add custom user morph categories** (these allow to store morphs across worlds):\nhttps://www.youtube.com/watch?v=b9WbQa0goUQ&t=126s",
+    "shaders": "This page is a semi-official (or something like that) list of Optifine shader packs:\nhttps://shaders.fandom.com/wiki/Shader_Packs",
+    "mtl": "This excerpt from old Blockbench video shows how to **setup materials for OBJ models** that have **several textures**:\nhttps://www.youtube.com/watch?v=QdN4C3XFRDI?t=125"
 }
