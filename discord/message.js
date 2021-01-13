@@ -15,6 +15,35 @@ function saveFaq (key)
     console.log("FAQ was saved! Latest key is: " + key);
 }
 
+function getFaqMessage(key, emoji) 
+{
+    key = key.toLowerCase();
+
+    if (faq.hasOwnProperty(key))
+    {
+        return faq[key];
+    }
+    
+    return `An FAQ named \`${key}\` doesn't exist! ${emoji}`;
+}
+
+function processInvidual(client, message, matches) 
+{
+    const emoji = utils.getEmoji(client, "catblob_sipping_juice");
+
+    if (matches && matches.length > 0)
+    {
+        var promise = message.channel
+            .send(getFaqMessage(matches.shift(), emoji))
+            .catch(() => console.error("Error during creation of the poll..."));
+
+        matches.forEach((key) => 
+        {
+            promise.then(() => message.channel.send(getFaqMessage(key), emoji));
+        });
+    }
+}
+
 function handleMessage (client, message)
 {
     if (message.author.bot)
@@ -22,7 +51,7 @@ function handleMessage (client, message)
         return;
     }
 
-    if (message.mentions.has(message.guild.ownerID) && message.author.id !== message.guild.ownerID)
+    if (message.guild.ownerID && message.mentions.has(message.guild.ownerID) && message.author.id !== message.guild.ownerID)
     {
         var m = utils.getMessage(message.channel, 'dont_ping');
 
@@ -33,6 +62,12 @@ function handleMessage (client, message)
     }
 
     var content = message.content;
+    var index = content.indexOf("!");
+
+    if (index > 0)
+    {
+        return processInvidual(client, message, content.match(/((?<=\!)[\w\d\-]+)/ig));
+    }
 
     /* Shortcuts */
     if (faq.hasOwnProperty(content.substring(1)))
@@ -87,17 +122,7 @@ function handleMessage (client, message)
     {
         if (args.length >= 1)
         {
-            const emoji = utils.getEmoji(client, "catblob_sipping_juice");
-            const key = args[0].toLowerCase();
-
-            if (faq.hasOwnProperty(key))
-            {
-                message.channel.send(faq[key]);
-            }
-            else
-            {
-                message.channel.send(`An FAQ named \`${key}\` doesn't exist! ${emoji}`);
-            }
+            processInvidual(client, message, [args[0]]);
         }
         else
         {
@@ -111,7 +136,7 @@ function handleMessage (client, message)
             {
                 keys.sort();
                 
-                keys = keys.map(elem => "`" + elem + "`");
+                keys = keys.map(elem => "` " + elem + " `");
                 keys = keys.join(", ");
             }
 
