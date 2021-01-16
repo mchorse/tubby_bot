@@ -53,5 +53,7 @@
     "bababoeey": "Bababoeey",
     "morph-categories": "This excerpt shows how to **add custom user morph categories** (these allow to store morphs across worlds):\nhttps://www.youtube.com/watch?v=b9WbQa0goUQ&t=126s",
     "shaders": "This page is a semi-official (or something like that) list of Optifine shader packs:\nhttps://shaders.fandom.com/wiki/Shader_Packs",
-    "mtl": "This excerpt from old Blockbench video shows how to **setup materials for OBJ models** that have **several textures**:\nhttps://www.youtube.com/watch?v=QdN4C3XFRDI?t=125"
+    "mtl": "This excerpt from old Blockbench video shows how to **setup materials for OBJ models** that have **several textures**:\nhttps://www.youtube.com/watch?v=QdN4C3XFRDI?t=125",
+    "placeholder": "This excerpt of Emoticons’ change log video shows how to **use Emoticons morph’s placeholder option**:\nhttps://youtu.be/11lAGyM1Fyc?t=120",
+    "bb-restore": "This excerpt from BB academy (2020) scenes episode shows how to **restore an accidentally overwritten player recording**:\nhttps://youtu.be/qDPEjf2TxAc?t=164"
 }
