@@ -66,7 +66,7 @@ function handleMessage (client, message)
 
     if (index > 0)
     {
-        return processInvidual(client, message, content.match(/((?<=\!)[\w\d\-]+)/ig));
+        return processInvidual(client, message, content.match(/((?<=[^@]\!)[\w\d\-]+)/ig));
     }
 
     /* Shortcuts */
