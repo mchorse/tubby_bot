@@ -31,7 +31,7 @@
     "entity-selectors": "This video shows how to use **Metamorph's feature called entity selectors**, which allows to replace mob's appearance with morphs:\nhttps://www.youtube.com/watch?v=b9WbQa0goUQ&t=402s",
     "spin": "This excerpt shows how to **setup a spinning animation**:\nhttps://www.youtube.com/watch?v=1Zd0Gd4Eryw&t=362s",
     "compress": "This excerpt shows how to **compress video MP4 files** using `ffmpeg`: \nhttps://www.youtube.com/watch?v=oYa_Wtd5Wo8&t=142s",
-    "bb-eyes": "This video shows how to **create eyes animation**:\nhttps://youtu.be/LTNfH2pUwuI",
+    "bb-eyes": "This video shows how to **create eyes animation**:\nhttps://youtu.be/vFhErlhTrMA",
     "db-outdated": "https://www.youtube.com/watch?v=nMOb8RnuyuE",
     "fight-scene": "This video by **SeanFilmProduction** shows how to do **fight scenes** in Blockbuster: \nhttps://youtu.be/FzCCg2mJscw",
     "manual-focus": "This video shows an experimental feature that can be used with **manually edited** shader packs and Aperture:\nhttps://www.youtube.com/watch?v=MC3t6GiQMQI",
@@ -55,5 +55,6 @@
     "shaders": "This page is a semi-official (or something like that) list of Optifine shader packs:\nhttps://shaders.fandom.com/wiki/Shader_Packs",
     "mtl": "This excerpt from old Blockbench video shows how to **setup materials for OBJ models** that have **several textures**:\nhttps://www.youtube.com/watch?v=QdN4C3XFRDI?t=125",
     "placeholder": "This excerpt of Emoticons’ change log video shows how to **use Emoticons morph’s placeholder option**:\nhttps://youtu.be/11lAGyM1Fyc?t=120",
-    "bb-restore": "This excerpt from BB academy (2020) scenes episode shows how to **restore an accidentally overwritten player recording**:\nhttps://youtu.be/qDPEjf2TxAc?t=164"
+    "bb-restore": "This excerpt from BB academy (2020) scenes episode shows how to **restore an accidentally overwritten player recording**:\nhttps://youtu.be/qDPEjf2TxAc?t=164",
+    "dev-build": "To get **Dev-Build Tester** role an access to <#548439751682687016> channel, go to <#706084546646638632>, react ⚒️ and that’s it! <:high_af:441859797395177472>"
 }

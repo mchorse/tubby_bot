@@ -51,6 +51,7 @@ function handleMessage (client, message)
         return;
     }
 
+    /* People don't respect the message... 😔
     if (message.guild.ownerID && message.mentions.has(message.guild.ownerID) && message.author.id !== message.guild.ownerID)
     {
         var m = utils.getMessage(message.channel, 'dont_ping');
@@ -59,7 +60,7 @@ function handleMessage (client, message)
         message.delete();
 
         return;
-    }
+    } */
 
     var content = message.content;
     var index = content.indexOf("!");
