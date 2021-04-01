@@ -5,7 +5,7 @@
     "bb-scenes": "This video shows **how to use Blockbuster scene**: \nhttps://www.youtube.com/watch?v=qDPEjf2TxAc",
     "bb-camera-sync": "This video shows how to **synchronize Aperture's camera editor with Blockbuster's scenes**, and **how to record video**:\nhttps://www.youtube.com/watch?v=VfSZs4f7Dx0",
     "body-part": "This video by **Ethobot** shows to **how to use the body part system** of Blockbuster and Emoticons' morphs:\nhttps://www.youtube.com/watch?v=bzhWB4U-nec",
-    "bb-gun": "This excerpt of the change log shows **how to use BB gun**:\nhttps://youtu.be/wpfiLTrzTLs?t=175",
+    "bb-gun": "This video tutorial shows **how to use BB gun**: https://youtu.be/CwuMqL6QXpw",
     "animated-poses": "This video shows **how to use animated poses**:\nhttps://www.youtube.com/watch?v=1Zd0Gd4Eryw",
     "bb-model-glow": "This video shows **how to make models emit light**, i.e. glow:\nhttps://www.youtube.com/watch?v=TnOlF8ZaXns",
     "image-morph": "This video shows **how to use image morphs**: \nhttps://www.youtube.com/watch?v=4znzqXSJU2M",
@@ -56,5 +56,14 @@
     "mtl": "This excerpt from old Blockbench video shows how to **setup materials for OBJ models** that have **several textures**:\nhttps://www.youtube.com/watch?v=QdN4C3XFRDI?t=125",
     "placeholder": "This excerpt of Emoticons’ change log video shows how to **use Emoticons morph’s placeholder option**:\nhttps://youtu.be/11lAGyM1Fyc?t=120",
     "bb-restore": "This excerpt from BB academy (2020) scenes episode shows how to **restore an accidentally overwritten player recording**:\nhttps://youtu.be/qDPEjf2TxAc?t=164",
-    "dev-build": "To get **Dev-Build Tester** role an access to <#548439751682687016> channel, go to <#706084546646638632>, react ⚒️ and that’s it! <:high_af:441859797395177472>"
+    "dev-build": "To get **Dev-Build Tester** role an access to <#548439751682687016> channel, go to <#706084546646638632>, react ⚒️ and that’s it! <:high_af:441859797395177472>",
+    "logs": "To identify and help you with an issue, let it be a bug or a crash, the mod developer, McHorse, needs **log files** (`.log` files). \n\n— **Crash log** files can be found in Minecraft's `crash-reports` folder, which is usually located in `%AppData%\\.minecraft\\crash-reports\\` (on Windows). Look for the most recent file by creation date, and drag and drop file right here. \n— **Game log files** can be found in Minecraft's `logs` folder, which is usually located in `%AppData%\\.minecraft\\logs\\`. If the bug happened in current game session, or in previous game session but you haven't launched Minecraft since then, then you can safely send here `latest.log` file within `logs` folder. Otherwise, you would need to find the correct file from the session in one of the dated files. That can be hard to do, so in case the error is reproducible, then just launch Minecraft again, reproduce it, and send the log file.\n\n**Don't send screenshot(s)** of launcher's error popup, launcher's log window or opened log file in `Notepad.exe`, **it won't help** and will waste everyone's time!",
+    "no": "No",
+    "yes": "Yes",
+    "emo-skin": "This excerpt shows how **to change Emoticons morph’s skin**:\nhttps://youtu.be/Hb3eCALm_AY?t=191",
+    "vox-characters": "This video shows how to **create MagicaVoxel characters**, similar to `!bb-characters` but with MagicaVoxel models instead of OBJ:\nhttps://youtu.be/Rbd8ubCSybQ",
+    "cached-structure": "It’s a common bug thanks to rewrite of structure morphs rendering that structure morphs **disappear in Blockbuster 2.2+**. To fix this, go to Ctrl + 0, Blockbuster, General and disable Cached structure rendering.",
+    "bb-hd-skin-extrusion": "This excerpt shows how to **make 3D extrusion work with HD skins**: \nhttps://youtu.be/NmGz3SVs6Gs?t=70",
+    "my-particles-not-work": "This is the **most popular FAQ so far**, so if your particles (be it Snowstorm or `particle` morph) **not work on body parts**, try following:\n1. Enable `Use Target` toggle like shown here: https://youtu.be/bzhWB4U-nec?t=116\n2. If 1. didn't work, drag the body part to the top of the body part list",
+    "new-updates": "There will be **no updates for new Minecraft versions**, only for 1.12.2, and here is the explanation why: https://youtu.be/5-MJEy7rXf4"
 }
