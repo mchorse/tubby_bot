@@ -4,6 +4,8 @@ let faq = require("../faq.json");
 
 const prefix = "!tubby";
 
+let localVotes = [];
+
 function noPermissions (message) 
 {
     message.reply("you don't have permissions to use this command!");
@@ -44,23 +46,126 @@ function processInvidual(client, message, matches)
     }
 }
 
+/* I hate promises not only IRL but also in JavaScript... */
+
+function countVotes(client, message, target) 
+{
+    var promises = [];
+    var votes = {};
+    var extract = (a, key) => 
+    {
+        for(const [userKey, userVal] of a)
+        {
+            var array = votes[userKey];
+
+            if (!array)
+            {
+                votes[userKey] = [];
+                array = votes[userKey];
+            }
+
+            array.push({
+                username: userVal.username,
+                emoji: key
+            })
+        }
+    };
+
+    var promises = [];
+
+    for (const [k, v] of message.reactions.cache)
+    {
+        promises.push(new Promise((resolve, reject) => 
+        {
+            v.users.fetch()
+                .then((a) => 
+                {
+                    extract(a, k);
+                    resolve();
+                })
+                .catch(reject);
+        }));
+    }
+
+    Promise.all(promises)
+        .then(() => 
+        {
+            var emojis = {};
+
+            for (var k in votes)
+            {
+                var v = votes[k];
+
+                if (!emojis[v[0].emoji])
+                {
+                    emojis[v[0].emoji] = {
+                        username: [v[0].username],
+                        votes: 1
+                    };
+                }
+                else
+                {
+                    emojis[v[0].emoji].username.push(v[0].username)
+                    emojis[v[0].emoji].votes += 1;
+                }
+            }
+
+            localVotes.push(emojis);
+            target.delete();
+        })
+        .catch(console.error);
+}
+
+function processVotes(votes)
+{
+    var emojis = {};
+
+    votes.forEach((v) =>
+    {
+        for (var k in v)
+        {
+            var o = v[k];
+            var emoji = emojis[k];
+
+            if (!emoji)
+            {
+                emoji = {
+                    username: [].concat(o.username),
+                    votes: o.votes
+                };
+                emojis[k] = emoji;
+            }
+            else
+            {
+                emoji.votes += o.votes;
+
+                o.username.forEach((name) =>
+                {
+                    if (emoji.username.includes(name))
+                    {
+                        emoji.votes -= 1;
+                    }
+                });
+            }
+        }
+    });
+
+    var result = [`Votes for ${votes.length} poll messages:`, ""];
+
+    for (var key in emojis)
+    {
+        result.push(`${key} — ${emojis[key].votes}`);
+    }
+    
+    return result.join("\n");
+}
+
 function handleMessage (client, message)
 {
     if (message.author.bot)
     {
         return;
     }
-
-    /* People don't respect the message... 😔
-    if (message.guild.ownerID && message.mentions.has(message.guild.ownerID) && message.author.id !== message.guild.ownerID)
-    {
-        var m = utils.getMessage(message.channel, 'dont_ping');
-
-        message.reply(m.replace('%MESSAGE%', message.toString()));
-        message.delete();
-
-        return;
-    } */
 
     var content = message.content;
     var index = content.indexOf("!");
@@ -166,6 +271,20 @@ function handleMessage (client, message)
         else
         {
             noPermissions(message);
+        }
+    }
+    else if (command === "count" && args.length >= 1)
+    {
+        if (args[0] === "process")
+        {
+            message.reply(processVotes(localVotes));
+            localVotes.length = 0;
+        }
+        else
+        {
+            message.channel.messages.fetch(args[0])
+                .then((m) => countVotes(client, m, message))
+                .catch(console.error);
         }
     }
     else if (command === "remove" && args.length >= 1)
