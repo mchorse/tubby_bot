@@ -1,15 +1,29 @@
 const utils = require('./utils.js');
 
+var modsRole = undefined;
+
 function handleReaction (client, message, user)
 {
+    if (modsRole === undefined)
+    {
+        var mods = message.message.channel.guild.roles.cache.find(r => r.name === "Mods");
+
+        if (mods)
+        {
+            modsRole = mods.id;
+
+            console.log("Mods' role ID is " + modsRole);
+        }
+    }
+
     let member = message.message.guild.member(user);
 
-    if (!member.hasPermission('ADMINISTRATOR'))
+    if (!member.hasPermission('ADMINISTRATOR') && member.roles.cache[modsRole] === null)
     {
         return;
     }
 
-	const emoji = message.emoji.toString();
+    const emoji = message.emoji.toString();
 
     /* Ask in the help channel */
     if (emoji === "❓")
