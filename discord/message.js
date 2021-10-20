@@ -1,32 +1,77 @@
 const fs = require("fs");
 const utils = require("./utils.js");
-let faq = require("../faq.json");
+
+class Words
+{
+    constructor(id, file)
+    {
+        this.id = id;
+        this.file = file;
+        this.strings = require(`../${file}`);
+    }
+
+    save(key)
+    {
+        fs.writeFile(this.file, JSON.stringify(this.strings, null, 4), () => {});
+        console.log(`${this.id} was saved! Latest key is: ${key}`);
+    }
+
+    has(key)
+    {
+        return this.strings.hasOwnProperty(key);
+    }
+
+    get(key, emoji) 
+    {
+        key = key.trim().toLowerCase();
+
+        if (this.has(key))
+        {
+            return this.strings[key];
+        }
+        
+        return `An FAQ named \`${key}\` doesn't exist! ${emoji}`;
+    }
+
+    put(key, value)
+    {
+        key = key.trim().toLowerCase();
+
+        let had = this.has(key);
+
+        this.strings[key] = value;
+        this.save(key);
+
+        return had;
+    }
+
+    remove(key)
+    {
+        key = key.trim().toLowerCase();
+
+        if (this.has(key))
+        {
+            delete this.strings[key];
+
+            this.save(key);
+
+            return true;
+        }
+
+        return false;
+    }
+}
+
+let faq = new Words("FAQ", "faq.json");
+let responses = new Words("Responses", "responses.json");
 
 const prefix = "!tubby";
 
 let localVotes = [];
 
-function noPermissions (message) 
+function noPermissions(message) 
 {
     message.reply("you don't have permissions to use this command!");
-}
-
-function saveFaq (key) 
-{
-    fs.writeFile('faq.json', JSON.stringify(faq, null, 4), () => {});
-    console.log("FAQ was saved! Latest key is: " + key);
-}
-
-function getFaqMessage(key, emoji) 
-{
-    key = key.toLowerCase();
-
-    if (faq.hasOwnProperty(key))
-    {
-        return faq[key];
-    }
-    
-    return `An FAQ named \`${key}\` doesn't exist! ${emoji}`;
 }
 
 function processInvidual(client, message, matches) 
@@ -36,131 +81,17 @@ function processInvidual(client, message, matches)
     if (matches && matches.length > 0)
     {
         var promise = message.channel
-            .send(getFaqMessage(matches.shift(), emoji))
+            .send(faq.get(matches.shift(), emoji))
             .catch(() => console.error("Error during creation of the poll..."));
 
         matches.forEach((key) => 
         {
-            promise.then(() => message.channel.send(getFaqMessage(key), emoji));
+            promise.then(() => message.channel.send(faq.get(key), emoji));
         });
     }
 }
 
-/* I hate promises not only IRL but also in JavaScript... */
-
-function countVotes(client, message, target) 
-{
-    var promises = [];
-    var votes = {};
-    var extract = (a, key) => 
-    {
-        for(const [userKey, userVal] of a)
-        {
-            var array = votes[userKey];
-
-            if (!array)
-            {
-                votes[userKey] = [];
-                array = votes[userKey];
-            }
-
-            array.push({
-                username: userVal.username,
-                emoji: key
-            })
-        }
-    };
-
-    var promises = [];
-
-    for (const [k, v] of message.reactions.cache)
-    {
-        promises.push(new Promise((resolve, reject) => 
-        {
-            v.users.fetch()
-                .then((a) => 
-                {
-                    extract(a, k);
-                    resolve();
-                })
-                .catch(reject);
-        }));
-    }
-
-    Promise.all(promises)
-        .then(() => 
-        {
-            var emojis = {};
-
-            for (var k in votes)
-            {
-                var v = votes[k];
-
-                if (!emojis[v[0].emoji])
-                {
-                    emojis[v[0].emoji] = {
-                        username: [v[0].username],
-                        votes: 1
-                    };
-                }
-                else
-                {
-                    emojis[v[0].emoji].username.push(v[0].username)
-                    emojis[v[0].emoji].votes += 1;
-                }
-            }
-
-            localVotes.push(emojis);
-            target.delete();
-        })
-        .catch(console.error);
-}
-
-function processVotes(votes)
-{
-    var emojis = {};
-
-    votes.forEach((v) =>
-    {
-        for (var k in v)
-        {
-            var o = v[k];
-            var emoji = emojis[k];
-
-            if (!emoji)
-            {
-                emoji = {
-                    username: [].concat(o.username),
-                    votes: o.votes
-                };
-                emojis[k] = emoji;
-            }
-            else
-            {
-                emoji.votes += o.votes;
-
-                o.username.forEach((name) =>
-                {
-                    if (emoji.username.includes(name))
-                    {
-                        emoji.votes -= 1;
-                    }
-                });
-            }
-        }
-    });
-
-    var result = [`Votes for ${votes.length} poll messages:`, ""];
-
-    for (var key in emojis)
-    {
-        result.push(`${key} — ${emojis[key].votes}`);
-    }
-    
-    return result.join("\n");
-}
-
-function handleMessage (client, message)
+function handleMessage(client, message)
 {
     if (message.author.bot)
     {
@@ -168,6 +99,12 @@ function handleMessage (client, message)
     }
 
     var content = message.content;
+
+    if (responses.has(content))
+    {
+        return message.channel.send(responses.get(content));
+    }
+
     var index = content.indexOf("!");
 
     if (index > 0)
@@ -176,7 +113,7 @@ function handleMessage (client, message)
     }
 
     /* Shortcuts */
-    if (faq.hasOwnProperty(content.substring(1)))
+    if (faq.has(content.substring(1)))
     {
         content = "!faq " + content.substring(1);
     }
@@ -186,24 +123,29 @@ function handleMessage (client, message)
         content = prefix + " faq" + content.substring(4);
     }
 
+    if (content.startsWith("!ar"))
+    {
+        content = prefix + " ar" + content.substring(3);
+    }
+
     if (content.startsWith("!set"))
     {
-        content = prefix + " set" + content.substring(4);
+        content = prefix + " faq set" + content.substring(4);
     }
 
     if (content.startsWith("!="))
     {
-        content = prefix + " set" + content.substring(2);
+        content = prefix + " faq set" + content.substring(2);
     }
 
     if (content.startsWith("!rem"))
     {
-        content = prefix + " remove" + content.substring(4);
+        content = prefix + " faq remove" + content.substring(4);
     }
 
     if (content.startsWith("!-"))
     {
-        content = prefix + " remove" + content.substring(2);
+        content = prefix + " faq remove" + content.substring(2);
     }
 
     if (!content.startsWith(prefix))
@@ -211,12 +153,12 @@ function handleMessage (client, message)
         return;
     }
 
-    const commandBody = content.slice(prefix.length + 1);
+    const commandBody = content.slice(prefix.length + 1).trim();
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
 
-    // console.log(`Message received: ${content}`);
-    // console.log(`Command: ${command}, Arguments: ${args}`);
+    console.log(`Message received: ${content}`);
+    console.log(`Command: ${command}, Arguments: ${args}`);
 
     if (command === "hi")
     {
@@ -224,15 +166,15 @@ function handleMessage (client, message)
 
         message.channel.send(`Sup... I'm the Tubby BOT:tm:! I was made by McHorse. ${emoji}`);
     }
-    else if (command === "faq")
+    else if (command === "faq" || command === "ar")
     {
-        if (args.length >= 1)
+        if (args.length == 1)
         {
-            processInvidual(client, message, [args[0]]);
+            return processInvidual(client, message, [args[0]]);
         }
-        else
+        else if (args.length == 0)
         {
-            var keys = Object.keys(faq);
+            var keys = Object.keys(faq.strings);
 
             if (keys.length == 0)
             {
@@ -246,69 +188,39 @@ function handleMessage (client, message)
                 keys = keys.join(", ");
             }
 
-            message.channel.send(`Following FAQ entries are available: ${keys}`);
+            return message.channel.send(`Following FAQ entries are available: ${keys}`);        
         }
-    }
-    else if (command === "set" && args.length >= 2)
-    {
-        if (message.member.hasPermission('ADMINISTRATOR'))
-        {
-            const key = args.shift().toLowerCase();
 
-            if (faq.hasOwnProperty(key))
+        if (!message.member.hasPermission('ADMINISTRATOR'))
+        {
+            return noPermissions(message);
+        }
+
+        let subcommand = args.shift();
+        let words = command === "faq" ? faq : responses;
+        const key = args.shift();
+
+        if (subcommand === "set" && args.length >= 1)
+        {
+            if (words.put(key, args.join(" ")))
             {
-                message.reply(`FAQ entry \`${key}\` was replaced!`);
+                message.reply(`${words.id} entry \`${key}\` was replaced!`);
             }
             else
             {
-                message.reply(`FAQ entry \`${key}\` was created!`);
+                message.reply(`${words.id} entry \`${key}\` was created!`);
             }
-
-            faq[key] = args.join(" ");
-
-            saveFaq(key);
         }
-        else
+        else if (subcommand === "remove")
         {
-            noPermissions(message);
-        }
-    }
-    else if (command === "count" && args.length >= 1)
-    {
-        if (args[0] === "process")
-        {
-            message.reply(processVotes(localVotes));
-            localVotes.length = 0;
-        }
-        else
-        {
-            message.channel.messages.fetch(args[0])
-                .then((m) => countVotes(client, m, message))
-                .catch(console.error);
-        }
-    }
-    else if (command === "remove" && args.length >= 1)
-    {
-        if (message.member.hasPermission('ADMINISTRATOR'))
-        {
-            const key = args[0].toLowerCase();
-
-            if (faq.hasOwnProperty(key))
+            if (words.remove(key))
             {
-                delete faq[key];
-
-                saveFaq(key);
-
-                message.reply(`FAQ entry \`${key}\` was successfully removed!`);
+                message.reply(`${words.id} entry \`${key}\` was successfully removed!`);
             }
             else
             {
-                message.reply(`FAQ entry \`${key}\` doesn't exist!`);
+                message.reply(`${words.id} entry \`${key}\` doesn't exist!`);
             }
-        }
-        else
-        {
-            noPermissions(message);
         }
     }
 }
