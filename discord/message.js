@@ -18,6 +18,8 @@ class Words
 
     has(key)
     {
+        key = key.trim().toLowerCase();
+
         return this.strings.hasOwnProperty(key);
     }
 
