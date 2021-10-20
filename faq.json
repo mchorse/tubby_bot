@@ -79,5 +79,14 @@
     "google": "https://www.google.com/ 🙂",
     "bb-op-fix": "In Blockbuster `2.3`+, OP support was added, so that random users **won't mess up the data on the server** (without being an OP user). This also causes the panels to be **disabled** (grayed out) when a singleplayer world **doesn't have commands enabled**. To fix this, either **open the world with commands to LAN**, or **watch this**: https://youtu.be/vO1tAgNsCUo?t=126",
     "morphs": "This video explains **what are morphs**, and how to **edit and manage them**:\nhttps://youtu.be/p-1346LqWGo",
-    "geckolib": "GeckoLib is Chameleon mod's dependency. You download it here:\nhttps://www.curseforge.com/minecraft/mc-mods/geckolib/files/3197366"
+    "geckolib": "GeckoLib is Chameleon mod's dependency. You download it here:\nhttps://www.curseforge.com/minecraft/mc-mods/geckolib/files/3197366",
+    "label-morph": "This except shows the label morph, which allows **displaying text as a morph**: \nhttps://youtu.be/b9WbQa0goUQ",
+    "ap-academy-ru\nвы": "также можете попробовать посмотреть отдельную академию Аперчур на русском от Киркуса:\nhttps://www.youtube.com/playlist?list=PL11Es6lcXiyDvtbvBfJTtM6xZynWDcOTj",
+    "ap-academy-ru": "Вы также можете попробовать посмотреть отдельную академию Аперчур на русском от Киркуса:\nhttps://www.youtube.com/playlist?list=PL11Es6lcXiyDvtbvBfJTtM6xZynWDcOTj",
+    "model-textures": "After loading your model into Blockbuster, if you have a problem with textures not correctly showing up (i.e. random texture will popup or black and purple checkered), then do **one of the following**: \n1. If you have only **one texture**, remove the mtl file that was exported with OBJ model.\n2. If you have **two or more** textures, you need to setup materials using this excerpt: https://www.youtube.com/watch?v=QdN4C3XFRDI?t=125\n\nIf you’ll **still experience the problem**, screenshot your model’s folder and also the model’s `skins` folder.",
+    "bb-appear-at": "This excerpt from a random discord clips video shows how to **make an actor appear at specific tick**:\nhttps://youtu.be/aRNudxc2etE",
+    "minema-ru": "Данный видео туториал от Киркуса показывает как установить минема мод:\nhttps://www.youtube.com/watch?v=GBdkSfV7Mnk",
+    "bb-first-person": "This excerpt from Blockbuster’s 2.2 change log video shows how to **use first person playback**:\nhttps://youtu.be/ioHMMEhxgkE?t=158",
+    "bb-render-last": "This excerpt from Blockbuster 2.3 change log video shows how to **avoid/fix issues with semi-transparent models**: \nhttps://www.youtube.com/watch?v=vO1tAgNsCUo&t=198s",
+    "ffmpeg": "You can download `ffmpeg` here:\n— For Windows: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z\n— For everything else: https://ffmpeg.org/download.html"
 }
