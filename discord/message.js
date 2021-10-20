@@ -102,7 +102,7 @@ function handleMessage(client, message)
 
     if (responses.has(content))
     {
-        return message.channel.send(responses.get(content));
+        return message.channel.send(responses.get(content).replace(/{user}/g, "<@" + message.author.id + ">"));
     }
 
     var index = content.indexOf("!");
