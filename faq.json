@@ -1,5 +1,5 @@
 {
-    "mod-links": "**McHorse's mods**\n— McLib: https://www.curseforge.com/minecraft/mc-mods/mchorses-mclib/files \n— Metamorph: https://www.curseforge.com/minecraft/mc-mods/metamorph/files\n— Chameleon: https://www.curseforge.com/minecraft/mc-mods/chameleon-morph/files \n— Aperture: https://www.curseforge.com/minecraft/mc-mods/aperture/files \n— Emoticons: https://www.curseforge.com/minecraft/mc-mods/emoticons/files \n— Blockbuster: https://www.curseforge.com/minecraft/mc-mods/blockbuster/files\n— Minema mod: https://github.com/daipenger/minema/releases",
+    "mod-links": "**McHorse's mods**\n— McLib: https://www.curseforge.com/minecraft/mc-mods/mchorses-mclib/files \n— Metamorph: https://www.curseforge.com/minecraft/mc-mods/metamorph/files\n— Chameleon: https://www.curseforge.com/minecraft/mc-mods/chameleon-morph/files \n— Aperture: https://www.curseforge.com/minecraft/mc-mods/aperture/files \n— Emoticons: https://www.curseforge.com/minecraft/mc-mods/emoticons/files \n— Blockbuster: https://www.curseforge.com/minecraft/mc-mods/blockbuster/files\n— Minema mod: https://github.com/daipenger/minema/releases\n— Mappet: https://www.curseforge.com/minecraft/mc-mods/mappet\n— S&B: https://www.curseforge.com/minecraft/mc-mods/snb",
     "bb-academy": "This is **Blockbuster academy**, a playlist of video tutorials that show basics of Blockbuster mod:\nhttps://www.youtube.com/playlist?list=PLLnllO8nnzE-xmqdymsLpxnXTaAbyIVjM",
     "bb-disable-limbs": "This excerpt shows how to **disable limb idle movement** for Blockbuster models: \nhttps://youtu.be/kOCBBrPEWYk?t=13",
     "bb-scenes": "This video shows **how to use Blockbuster scene**: \nhttps://www.youtube.com/watch?v=qDPEjf2TxAc",
@@ -88,5 +88,7 @@
     "minema-ru": "Данный видео туториал от Киркуса показывает как установить минема мод:\nhttps://www.youtube.com/watch?v=GBdkSfV7Mnk",
     "bb-first-person": "This excerpt from Blockbuster’s 2.2 change log video shows how to **use first person playback**:\nhttps://youtu.be/ioHMMEhxgkE?t=158",
     "bb-render-last": "This excerpt from Blockbuster 2.3 change log video shows how to **avoid/fix issues with semi-transparent models**: \nhttps://www.youtube.com/watch?v=vO1tAgNsCUo&t=198s",
-    "ffmpeg": "You can download `ffmpeg` here:\n— For Windows: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z\n— For everything else: https://ffmpeg.org/download.html"
+    "ffmpeg": "You can download `ffmpeg` here:\n— For Windows: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z\n— For everything else: https://ffmpeg.org/download.html",
+    "orbit-modifier": "This excerpt shows how to **setup an orbit modifier** (follow and look modifiers are configured in a similar way):\nhttps://youtu.be/aRNudxc2etE?t=66",
+    "bb-wav": "Blockbuster's in-game audio sync works **only** with `.wav` (Wave) files. Renaming the audio file from `.mp3` or `.aiff` to `.wav` **won't do it**! You need to actually open the audio file in Audacity, and save it as a `.wav` file in order for it **to be converted properly**. You can download Audacity here: https://www.audacityteam.org/download/"
 }

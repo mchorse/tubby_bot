@@ -18,12 +18,14 @@ function handleReaction (client, message, user)
 
     let member = message.message.guild.member(user);
 
-    if (!member.hasPermission('ADMINISTRATOR') && member.roles.cache[modsRole] === null)
+    if (!member.hasPermission('ADMINISTRATOR') || member.roles.cache[modsRole] === null)
     {
         return;
     }
 
     const emoji = message.emoji.toString();
+
+    console.log("User " + user.tag + " reacted " + emoji + " in #" + message.message.channel.name);
 
     /* Ask in the help channel */
     if (emoji === "❓")
