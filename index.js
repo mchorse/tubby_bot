@@ -3,15 +3,18 @@ const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 
 console.log("Starting up...");
 
-client.on('warn', info => {
+client.on('warn', info =>
+{
     console.log(`Client warning: ${info}`);
 });
 
-client.on('error', info => {
+client.on('error', info =>
+{
     console.log(`Client error: ${error}`);
 });
 
-client.on('ready', () => {
+client.on('ready', () => 
+{
     console.log("");
     console.log("==================================");
     console.log(` Logged in as ${client.user.tag}!`);
@@ -27,10 +30,13 @@ client.on('ready', () => {
 });
 
 const messageCB = require("./discord/message.js").factory;
-const messageDel = require("./discord/message_del.js").factory;
 const reactCB = require("./discord/react.js").factory;
+const messageDel = require("./discord/message_del.js").factory;
 
 client.on("message", messageCB(client));
 client.on("messageReactionAdd", reactCB(client));
 client.on("messageDelete", messageDel(client));
 client.login(require("./config.json").BOT_TOKEN);
+
+
+
