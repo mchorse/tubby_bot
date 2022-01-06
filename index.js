@@ -31,7 +31,12 @@ client.on('ready', () =>
 
 const messageCB = require("./discord/message.js").factory;
 const reactCB = require("./discord/react.js").factory;
+const messageDel = require("./discord/message_del.js").factory;
 
 client.on("message", messageCB(client));
 client.on("messageReactionAdd", reactCB(client));
+client.on("messageDelete", messageDel(client));
 client.login(require("./config.json").BOT_TOKEN);
+
+
+
