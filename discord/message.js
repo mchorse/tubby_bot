@@ -177,6 +177,8 @@ function handleMessage(client, message)
         else if (args.length == 0)
         {
             var keys = Object.keys(faq.strings);
+            var messages = [];
+            var separator = ", ";
 
             if (keys.length == 0)
             {
@@ -186,11 +188,39 @@ function handleMessage(client, message)
             {
                 keys.sort();
                 
-                keys = keys.map(elem => "` " + elem + " `");
-                keys = keys.join(", ");
+                var m = keys.map(elem => "` " + elem + " `").join(separator);
+
+                m = `Following FAQ entries are available: ${m}`;
+                messages.push(m);
             }
 
-            return message.channel.send(`Following FAQ entries are available: ${keys}`);        
+            while (messages[messages.length - 1].length >= 2000)
+            {
+                var m = messages[messages.length - 1];
+                var i = m.lastIndexOf(separator);
+
+                while (i >= 2000)
+                {
+                    i = m.lastIndexOf(separator, i - 1);
+                }
+
+                var first = m.substring(0, i);
+                var second = m.substring(i + separator.length);
+
+                console.log("---");
+                console.log(first);
+                console.log(second);
+
+                messages[messages.length - 1] = first;
+                messages.push(second);
+            }
+
+            for (const m of messages)
+            {
+                message.channel.send(m);
+            }
+
+            return;        
         }
 
         if (!message.member.hasPermission('ADMINISTRATOR'))
