@@ -82,15 +82,21 @@ function processInvidual(client, message, matches)
 
     if (matches && matches.length > 0)
     {
+        var key = matches.shift();
         var promise = message.channel
-            .send(faq.get(matches.shift(), emoji))
+            .send(eh(key, faq.get(key, emoji)))
             .catch(() => console.error("Error during creation of the poll..."));
 
         matches.forEach((key) => 
         {
-            promise.then(() => message.channel.send(faq.get(key), emoji));
+            promise.then(() => message.channel.send(eh(key, faq.get(key)), emoji));
         });
     }
+}
+
+function eh(key, message)
+{
+    return `> *FAQ entry for* \`!${key}\`*:*\n${message}`;
 }
 
 function handleMessage(client, message)
@@ -170,7 +176,7 @@ function handleMessage(client, message)
     }
     else if (command === "faq" || command === "ar")
     {
-        if (args.length == 1)
+        if (args.length >= 1)
         {
             return processInvidual(client, message, [args[0]]);
         }
@@ -206,10 +212,6 @@ function handleMessage(client, message)
 
                 var first = m.substring(0, i);
                 var second = m.substring(i + separator.length);
-
-                console.log("---");
-                console.log(first);
-                console.log(second);
 
                 messages[messages.length - 1] = first;
                 messages.push(second);
